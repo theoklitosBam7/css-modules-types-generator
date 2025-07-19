@@ -292,9 +292,81 @@ This tool works with all major bundlers and build systems:
 - Check the console output for any parsing errors
 - Run with `--debug` to see more information about the extraction process
 
+## Project Structure
+
+```text
+css-modules-types-generator/
+├── src/
+│   ├── cli.ts         # CLI entry point and argument parsing
+│   ├── index.ts       # Core type generation logic
+│   └── run.ts         # Node entry point for CLI
+├── tests/
+│   └── index.test.ts  # Test suite
+├── tsdown.config.ts   # Build configuration
+├── tsconfig.json      # TypeScript configuration
+└── package.json       # Dependencies and scripts
+```
+
+### Architecture
+
+This project follows a clean separation of concerns:
+
+- **CLI Interface** (`cli.ts`): Handles command-line arguments, configuration, and watch mode.
+- **Core Logic** (`index.ts`): Performs the actual CSS/SCSS processing and type generation.
+- **Runner** (`run.ts`): Thin entry point that invokes the CLI.
+
+The type generation process follows these steps:
+
+1. **File Discovery**: Uses glob patterns to find CSS/SCSS files
+2. **CSS Processing**: Uses PostCSS and postcss-modules to extract class names
+3. **SCSS Processing**: Uses Sass compiler for SCSS files before PostCSS processing
+4. **Type Generation**: Formats class names and generates TypeScript declaration files
+5. **Output**: Writes `.d.ts` files alongside source files or to a specified output directory
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+### Development Workflow
+
+1. Fork the repository
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/css-modules-types-generator.git`
+3. Install dependencies: `npm install`
+4. Set up git hooks: `npm run prepare-hooks`
+5. Make your changes
+6. Run tests: `npm test`
+7. Ensure types are valid: `npm run typecheck`
+8. Format your code: `npm run format`
+9. Commit your changes (the pre-commit hook will run linting and formatting)
+10. Push to your branch (the pre-push hook will run type checking and tests)
+11. Open a Pull Request
+
+### Available Scripts
+
+- `npm run build` - Build the project using tsdown
+- `npm run dev` - Build in watch mode for development
+- `npm run test` - Run unit tests
+- `npm run unit:watch` - Run unit tests in watch mode
+- `npm run unit:coverage` - Run unit tests with coverage report
+- `npm run typecheck` - Check TypeScript types
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Run ESLint with auto-fix
+- `npm run format` - Format code with Prettier
+- `npm run prepare-hooks` - Set up git hooks (run after cloning or updating hooks)
+
+### Git Hooks
+
+This project uses [simple-git-hooks](https://github.com/toplenboren/simple-git-hooks) to manage git hooks:
+
+- **pre-commit**: Runs lint-staged to lint and format staged files
+- **pre-push**: Runs type checking and tests to ensure code quality
+
+You can skip these hooks temporarily by adding `SKIP_SIMPLE_GIT_HOOKS=1` before git commands:
+
+```bash
+SKIP_SIMPLE_GIT_HOOKS=1 git commit -m "Quick commit without hooks"
+SKIP_SIMPLE_GIT_HOOKS=1 git push
+```
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
