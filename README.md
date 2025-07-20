@@ -266,8 +266,8 @@ This tool works with all major bundlers and build systems:
 
 ## Requirements
 
-- Node.js 16.x or higher
-- npm 7.x or higher or equivalent package manager
+- Node.js 18.x or higher
+- npm 10.x or higher or equivalent package manager
 
 ## Troubleshooting
 

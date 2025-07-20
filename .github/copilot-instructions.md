@@ -41,7 +41,7 @@
 - **Naming:** Only files matching the glob (e.g., `*.module.css`) are processed.
 - **Integration:**
   - Works with Webpack, Vite, Next.js, CRA, Rollup, esbuild (see README for config snippets)
-- **Node version:** Requires Node.js 16+ and npm 7+
+- **Node version:** Requires Node.js 18+ and npm 10+
 - **Lint/Format:** Uses ESLint (`@sxzz/eslint-config`) and Prettier (`@sxzz/prettier-config`).
 
 ## Examples
