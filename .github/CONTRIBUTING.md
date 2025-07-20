@@ -10,8 +10,8 @@ Please be respectful and considerate of others when contributing to this project
 
 ### Prerequisites
 
-- Node.js 16.x or higher
-- npm 7.x or higher
+- Node.js 18.x or higher
+- npm 10.x or higher
 
 ### Setting Up Development Environment
 

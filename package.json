@@ -29,6 +29,10 @@
   "bin": {
     "css-types-gen": "dist/run.js"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "lint": "eslint --cache .",
     "lint:fix": "npm run lint --fix",
