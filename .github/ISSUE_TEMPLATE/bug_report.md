@@ -1,4 +1,9 @@
-# Bug Report
+---
+name: "🐞 Bug Report"
+about: Report a problem or unexpected behavior in the project
+title: "[BUG] <describe the bug>"
+labels: bug
+---
 
 ## Description
 
