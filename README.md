@@ -3,6 +3,9 @@
 [![npm version](https://img.shields.io/npm/v/css-modules-types-generator.svg)](https://www.npmjs.com/package/css-modules-types-generator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+> [!IMPORTANT]
+> This repository is archived and is no longer maintained. The code remains available for reference and use under the MIT License.
+
 A CLI tool and library for generating TypeScript definitions for CSS/SCSS modules.
 
 ## Features
